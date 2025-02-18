@@ -41,6 +41,8 @@ class SquareAnimationState extends State<SquareAnimation>
   bool leftEnabled = true;
   /// Booleans to enable/disable the right button
   bool rightEnabled = true;
+  /// Duration of the animation
+  static const Duration _duration = Duration(seconds: 1);
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +63,7 @@ class SquareAnimationState extends State<SquareAnimation>
                   children: [
                     /// [AnimatedContainer] to animate the square implicitly
                     AnimatedContainer(
-                      duration: const Duration(seconds: 1),
+                      duration: _duration,
                       width: position,
                       // Left side of the square
                       // Can be used to display widgets
@@ -104,7 +106,7 @@ class SquareAnimationState extends State<SquareAnimation>
                                     position += _squareSize;
                                     /// Enable the buttons after the animation
                                     Future.delayed(
-                                      const Duration(seconds: 1),
+                                      _duration,
                                       () {
                                         setState(() {
                                           /// Enable the left button if the square is not at the left edge
@@ -144,7 +146,7 @@ class SquareAnimationState extends State<SquareAnimation>
                                     position -= _squareSize;
                                     /// Enable the buttons after the animation
                                     Future.delayed(
-                                      const Duration(seconds: 1),
+                                      _duration,
                                       () {
                                         setState(() {
                                           /// Enable the left button if the square is not at the left edge
